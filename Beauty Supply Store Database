@@ -1,0 +1,40 @@
+--Create a beauty supply store database
+
+CREATE TABLE Shop (product_id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, price INTEGER, category TEXT);
+
+INSERT INTO shop VALUES (1, "scalp oil", 50, 13.99, "oils");
+INSERT INTO shop VALUES (2, "edge control", 45, 10.99, "edges");
+INSERT INTO shop VALUES (3, "braid gel", 52, 11.99, "gels");
+INSERT INTO shop VALUES (4, "leave in conditioner", 37, 8.99, "conditioners");
+INSERT INTO shop VALUES (5, "hydrating shampoo", 34, 10.99, "shampoos");
+INSERT INTO shop VALUES (6, "hydrating conditioner", 17, 10.99, "conditioners");
+INSERT INTO shop VALUES (7, "deep conditioner", 37, 11.99, "conditioners");
+INSERT INTO shop VALUES (8, "loc gel", 27, 12.99, "gels");
+INSERT INTO shop VALUES (9, "twist gel", 24, 12.99,"gels");
+INSERT INTO shop VALUES (10, "large clips", 63, 1.99, "clips");
+INSERT INTO shop VALUES (11, "shea butter", 36, 7.99, "butters");
+INSERT INTO shop VALUES (12, "olive oil mousse", 29, 4.99, "mousse");
+INSERT INTO shop VALUES (13, "prestretched braiding hair", 94, 5.99, "braiding hair");
+INSERT INTO shop VALUES (14, " 18 inch wet/wavy raw bundles", 89, 74.99, "raw bundles");
+INSERT INTO shop VALUES (15, "rat tail parting combs",79, 1.29, "combs");
+
+
+--display the database ordered by price. 
+SELECT *
+FROM Shop
+ORDER BY price asc; 
+
+--What is the sum price of items in the gels category?
+SELECT SUM(price)
+FROM Shop
+WHERE category = "gels";
+
+-Which items are priced over 7.99?
+SELECT *
+FROM Shop
+WHERE price > 7.99;
+
+--what is the total sum of items in the gels category?
+SELECT SUM(quantity)
+FROM Shop
+WHERE category = "gels"
