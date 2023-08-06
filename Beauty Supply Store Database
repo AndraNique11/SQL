@@ -29,7 +29,7 @@ SELECT SUM(price)
 FROM Shop
 WHERE category = "gels";
 
--Which items are priced over 7.99?
+--Which items are priced over 7.99?
 SELECT *
 FROM Shop
 WHERE price > 7.99;
