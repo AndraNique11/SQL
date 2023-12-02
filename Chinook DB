@@ -1,0 +1,25 @@
+#In this SQL, I'm querying the Chinook database to answer specific questions about its data.
+
+#What are the media types within this database?
+SELECT * FROM chinook.media_types
+
+#Show the total invoice amounts for each country, considering only those invoices where the total amount is greater than 2.
+SELECT BillingCountry, SUM(Total) AS TotalAmount
+FROM chinook.invoices
+WHERE Total > 2
+GROUP BY BillingCountry
+ORDER BY TotalAmount DESC;
+
+#Provide a query that shows the invoices associated with each sales agent. The resulting table should include the Sales Agent's full name.
+SELECT emp.LastName, emp.Firstname, inv.InvoiceId
+FROM chinook.Employees emp 
+JOIN chinook.Customers cust ON cust.SupportRepId = emp.EmployeeId
+JOIN chinook.Invoices Inv ON Inv.CustomerId = cust.CustomerId;
+
+#Show only the customers located in Prague.
+SELECT FirstName, LastName, City, Country
+ FROM chinook.customers
+WHERE CITY = 'Prague'
+
+
+
